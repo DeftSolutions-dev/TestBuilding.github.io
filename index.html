@@ -12,6 +12,18 @@
   </head>
 
   <body>
+    <script>
+  (function(){
+    // Проверяем, есть ли сохраненный путь
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    
+    // Если есть сохраненный путь, перенаправляем на него
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
